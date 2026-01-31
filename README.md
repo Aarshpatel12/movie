@@ -1,1 +1,11 @@
-This is a moive recommendation system
+This code looks like a classic Content-Based Movie Recommender! It uses Cosine Similarity to find movies with similar tags and Streamlit to create a slick front-end.Below is a professional README.md template you can use for your GitHub repository.Movie Recommender System 🎬A Streamlit-based web application that recommends movies based on user preference. The system uses machine learning to calculate similarity between movies and fetches real-time posters using the TMDB API.Getty Images Explore 🚀 FeaturesSearch & Select: Choose from thousands of movies in the database.Similarity Engine: Uses Cosine Similarity to find the most relevant matches.Dynamic Posters: Fetches high-quality movie posters via The Movie Database (TMDB) API.Responsive UI: A clean, 5-column layout to display recommendations.🛠️ Tech StackFrontend: StreamlitLanguage: Python 3.xLibraries: Pandas, Scikit-learn, Pickle, RequestsAPI: TMDB API📂 Project StructurePlaintext├── model/
+│   ├── movie_list.pkl    # Processed movie DataFrame
+│   └── similarity.pkl    # Precomputed Similarity Matrix
+├── app.py                # Main Streamlit application
+├── requirements.txt      # List of dependencies
+└── README.md
+⚙️ Installation & SetupClone the Repository:Bashgit clone https://github.com/your-username/movie-recommender.git
+cd movie-recommender
+Install Dependencies:Bashpip install -r requirements.txt
+Data Preparation:Ensure you have your .pkl files inside a folder named model. (These are generated from your Jupyter Notebook/Jupyter Lab environment after calculating the similarity matrix).Run the App:Bashstreamlit run app.py
+🧩 How It WorksVectorization: The system converts movie tags (genres, keywords, cast, etc.) into vectors.Similarity Score: It calculates the distance between these vectors using Cosine Similarity:$$\text{similarity} = \cos(\theta) = \frac{\mathbf{A} \cdot \mathbf{B}}{\|\mathbf{A}\| \|\mathbf{B}\|}$$Fetching Results: When you select a movie, the app finds the 5 movies with the highest similarity scores and displays their titles and posters.⚠️ Important NoteIn your app.py, I noticed you are using st.beta_columns(5). Since Streamlit version 0.81.0, this has been updated to st.columns(5). You may want to update that line to avoid deprecation warnings!
